@@ -1,0 +1,36 @@
+class Solution {
+public:
+    // Function to check if one string is a rotation of another string
+    bool rotateString(string s, string nope) {
+        // Step 1: Check if the strings have different lengths
+        if (s.length() != nope.length()) 
+            return false;
+        
+        // Step 2: Initialize two queues to hold characters of both strings
+        queue<int> q1;
+        queue<int> q2;
+        
+        int n = s.length(); // Get the length of the strings
+        
+        // Step 3: Push characters of both strings into their respective queues
+        for (int i = 0; i < s.length(); i++) {
+            q1.push(s[i]);
+            q2.push(nope[i]);
+        }
+
+        // Step 4: Try rotating the first queue and compare with the second queue
+        for (int i = 0; i < n; i++) {
+            // Move the front character of q1 to the back
+            char v = q1.front();
+            q1.pop();
+            q1.push(v);
+
+            // If both queues are equal, return true (rotation is possible)
+            if (q1 == q2) 
+                return true;
+        }
+
+        // Step 5: If no rotation matches, return false
+        return false;
+    }
+};
