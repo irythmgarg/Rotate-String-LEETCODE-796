@@ -1,0 +1,35 @@
+Theory Explanation:
+Length Check:
+
+The first condition checks if the lengths of the two strings are equal. If they are not, the strings cannot be rotations of each other, and the function immediately returns false.
+Using Queues:
+
+Two queues, q1 and q2, are used to represent the characters of the strings s and nope, respectively.
+Each character of the strings is pushed into its respective queue.
+Simulating Rotation:
+
+The function tries to simulate the rotation of string s by repeatedly removing the front character from q1 and pushing it to the back.
+After each rotation, the function compares the two queues (q1 and q2). If they are equal at any point, this means string s is a rotation of string nope, and the function returns true.
+Final Result:
+
+If after all rotations no match is found, the function returns false, indicating that s cannot be rotated to match nope.
+Space Complexity:
+Auxiliary Space:
+
+Two queues (q1 and q2) are used to store the characters of the strings. Each queue holds n characters, where n is the length of the string.
+Therefore, the space complexity for storing the queues is O(n), where n is the length of the strings.
+Final Space Complexity: O(n), where n is the length of the strings.
+
+Time Complexity:
+Queue Operations:
+
+Each string's characters are pushed into the queues, which takes O(n) time.
+Each rotation involves popping and pushing one character in the queue, both of which are O(1) operations. Rotating the queue n times results in O(n) time for the rotations.
+Queue Comparison:
+
+After each rotation, the two queues are compared, which takes O(n) time.
+Final Time Complexity: O(n^2), because there are n rotations and each comparison takes O(n) time.
+Overall Complexity:
+Time Complexity: O(n^2), where n is the length of the strings.
+Space Complexity: O(n), where n is the length of the strings.
+While this solution works, the time complexity can be improved, particularly for large strings.
